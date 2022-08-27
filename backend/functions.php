@@ -1,4 +1,5 @@
 <?php
+
 function parseNode($ast, $data) {
     if (! $ast instanceof ast\Node) {
         return;
@@ -11,12 +12,12 @@ function parseNode($ast, $data) {
             $data['namespace'] = $ast->children['name'];
             break;
         case 'AST_CLASS':
-            $data['name']        = $ast->name;
+            $data['name']        = $ast->children['name'];
             $data['extends']     = $ast->children['extends']->children['name'];
             $data['implements']  = $ast->children['implements']->children[0]->children['name'];
             $data['no_lines']    = $ast->endLineno - $ast->lineno;
-            $data['no_attrs']    = countType($ast->children['stmts'], 'AST_PROP_DECL');
-            $data['no_methods']  = countType($ast->children['stmts'], 'AST_METHOD');
+            $data['no_attrs']    = countType($ast->children['stmts'], ['AST_PROP_GROUP','AST_PROP_DECL']);
+            $data['no_methods']  = countType($ast->children['stmts'], ['AST_METHOD']);
 
             $data = determineFlags($ast, $data);
             break;
@@ -25,13 +26,19 @@ function parseNode($ast, $data) {
     return $data;
 }
 
-function countType($ast, $type) {
+function countType($ast, $types) {
     $count = 0;
 
     if ($ast instanceof ast\Node) {
         foreach ($ast->children as $i => $child) {
-            if (ast\get_kind_name($child->kind) == $type) {
-                $count++;
+            $kind = ast\get_kind_name($child->kind);
+            if (in_array($kind, $types)) {
+                // Handle php 7.4 property group
+                if ($kind == 'AST_PROP_GROUP') {
+                    $count += count($child->children['props']->children ?? []);
+                } else {
+                    $count++;
+                }
             }
         }
     }

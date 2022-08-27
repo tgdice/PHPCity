@@ -1,3 +1,7 @@
+# Forked from [adrianhuna/PHPCity](https://github.com/adrianhuna/PHPCity)
+
+!!!I do not plan nor intend on maintaining the project, use at your own risk.!!!
+
 # PHPCity
 
 PHPCity is an implementation of city metaphor visualization and provides visualization of PHP projects
@@ -26,7 +30,19 @@ visualization will load.
 
 ## Visualize custom project
 <a name="visualize-custom-project"></a>In order to visualize your own PHP project, you will need to generate JSON file describing your project. Please,
-see instructions in [backend part](https://github.com/adrianhuna/PHPCity/backend) of this project.
+see instructions in [backend part](https://github.com/tgdice/PHPCity/backend) of this project.
 
 ## How to use PHPCity
 Instructions are provided in the [visualization](https://adrianhuna.github.io/PHPCity) by clicking "Help" item in the top menu.
+
+## Setup And Commands
+
+```sh
+docker compose down && docker compose build && docker compose up -d
+
+## Build Frontend
+docker exec -ti phpcity-app bash -c "cd ./frontend && ./build.sh"
+
+## Parse project
+docker exec -ti phpcity-app bash -c "cd ./backend && php ./parser.php /code/{project/path}"
+```

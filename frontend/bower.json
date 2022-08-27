@@ -1,7 +1,6 @@
 {
   "name": "php-city",
   "description": "City metaphor visualization of PHP projects",
-  "main": "./dist/js/bundle.min.js",
   "authors": [
     "Adrian Huna"
   ],
@@ -25,7 +24,7 @@
     "underscore": "^1.8.3",
     "stats.js": "*",
     "three.js": "0.79.0",
-    "OrbitControls": "http://threejs.org/examples/js/controls/OrbitControls.js",
+    "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.79.0/examples/js/controls/OrbitControls.js",
     "bin-packing": "https://github.com/jakesgordon/bin-packing.git",
     "d3": "^3.5.17",
     "font-awesome": "fontawesome#^4.6.3"

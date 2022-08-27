@@ -1,11 +1,11 @@
 # PHPCity frontend
-This is frontend part of [PHPCity](https://github.com/adrianhuna/PHPCity) visualization. Visit [visualization application](https://adrianhuna.github.io/PHPCity) to see it in action. Instructions for visualizing your projects can be found in [backend part](https://github.com/adrianhuna/PHPCity/tree/master/backend) of this project.
+This is frontend part of [PHPCity](https://github.com/tgdice/PHPCity) visualization. Visit [visualization application](https://adrianhuna.github.io/PHPCity) to see it in action. Instructions for visualizing your projects can be found in [backend part](https://github.com/tgdice/PHPCity/tree/master/backend) of this project.
 
-To read more about this project see README in [root directory](https://github.com/adrianhuna/PHPCity/blob/master/README.md).
+To read more about this project see README in [root directory](https://github.com/tgdice/PHPCity/blob/master/README.md).
 
 ## Development
 This project is written in Typescript. If you need to edit something, please proceed as follows:
-- move into `frontend` folder of [PHPCity](https://github.com/adrianhuna/PHPCity) if you are not already (`cd frontend`)
+- move into `frontend` folder of [PHPCity](https://github.com/tgdice/PHPCity) if you are not already (`cd frontend`)
 - run `npm install` to install development libraries
 - run `bower install` to install project's dependencies
 - run `gulp` to start building process
@@ -27,7 +27,7 @@ Gulp task `gulp build:dist` is designed to be used when creating a new release.
 #### [stats.js](https://github.com/mrdoob/stats.js/)
 - JavaScript performance monitor
 
-#### OrbitControls](http://threejs.org/examples/js/controls/OrbitControls.js)
+#### OrbitControls](https://cdn.jsdelivr.net/npm/three@0.79.0/examples/js/controls/OrbitControls.js)
 - orbiting controls that allow zooming and panning
 
 #### Well known

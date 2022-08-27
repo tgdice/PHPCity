@@ -1,0 +1,20 @@
+version: "3"
+services:
+  app:
+    container_name: phpcity-app
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    networks:
+      - phpcity
+    volumes:
+      - ${CODE_PATH:-~/code}:/code
+      - ./:/app
+    ports:
+      - 8089:80
+    working_dir: /app
+    extra_hosts:
+      - "phpcity.test:172.17.0.1"
+networks:
+  phpcity:
+    driver: bridge

@@ -40,13 +40,13 @@ export function histogram(values: number[], id: string) {
 
   bar.append("rect")
     .attr("x", 1)
-    .attr("width", x(data[0].dx) - 1)
+    .attr("width", x(data[0]?.dx) - 1)
     .attr("height", (d) => height - y(d.y));
 
   bar.append("text")
     .attr("dy", ".75em")
     .attr("y", 6)
-    .attr("x", x(data[0].dx) / 2)
+    .attr("x", x(data[0]?.dx) / 2)
     .attr("text-anchor", "middle")
     .text((d) => formatCount(d.y));
 
